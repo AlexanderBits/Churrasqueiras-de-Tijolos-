@@ -11,7 +11,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const product = await prisma.product.findUnique({ where: { slug } });
+  const product = await prisma.product.findUnique({ where: { slug }, include: { images: true } });
 
   if (!product) return { title: "Produto não encontrado" };
 
@@ -53,7 +53,7 @@ export default async function ProductPage({ params }: Props) {
               {product.images?.[0] ? (
                 <Image
                   src={product.images[0].url}
-                  alt={product.name}
+                  alt={`Churrasqueira de Tijolo ${product.name} - Modelo ${product.category}`}
                   fill
                   className="object-cover"
                   priority

@@ -1,6 +1,7 @@
 import { Outfit, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -20,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={cn("h-full antialiased", "font-sans", geist.variable)}>
-      <body className={`${outfit.className} min-h-full flex flex-col`}>
+    <html lang="pt-BR" className={cn("h-full antialiased", "font-sans", geist.variable)} suppressHydrationWarning>
+      <body className={`${outfit.className} min-h-full flex flex-col`} suppressHydrationWarning>
         {children}
       </body>
     </html>
