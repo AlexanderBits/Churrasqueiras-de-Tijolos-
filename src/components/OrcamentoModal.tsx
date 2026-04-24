@@ -22,7 +22,7 @@ const CONJUNTO_OPTIONS = [
 const CHAMINE_OPTIONS = [
   { id: "tubo-cinza", label: "Tubo Cinza", desc: "Fica preto com o uso" },
   { id: "tijolos", label: "Tijolos", desc: "Acabamento em alvenaria" },
-  { id: "acoplado", label: "Acoplado", desc: "Mais Barato" },
+  { id: "acoplado", label: "Acoplado (Geminado)", desc: "Mais Barato e Compacto" },
 ];
 
 // Cores de tijolo
@@ -172,6 +172,44 @@ Gostaria de receber um orçamento para este conjunto. Obrigado!`;
     const ids = conjuntoSelecionado;
     const tipo = tipoSelecionado;
     
+    // Caso: Churrasqueira Padrão + Forno Iglu Acoplado (Geminado)
+    if (ids.includes("churrasqueira") && ids.includes("forno-iglu")) {
+      if (tipo === "padrao") {
+        // Mostra a prévia acoplada se selecionado ou se ainda não escolheu a chaminé
+        if (chamineSelecionada === "acoplado" || !chamineSelecionada) {
+          return "/previa_modelos/Churrasqueira_Forno_Iglu`_Acoplado.gif";
+        }
+      }
+    }
+
+    // Caso: Churrasqueira Padrão + Bancada 120cm
+    if (ids.includes("churrasqueira") && ids.includes("bancada-pia-120")) {
+      if (tipo === "padrao" || !tipo) {
+        return "/previa_modelos/Churrasqueira_com_bancada_120.gif";
+      }
+    }
+
+    // Caso: Churrasqueira Padrão + Forno (Caipira ou Ferro) + Fogão 3 Bocas
+    if (ids.includes("churrasqueira") && (ids.includes("forno-caipira") || ids.includes("forno-ferro")) && ids.includes("fogao-3-bocas")) {
+      if (tipo === "padrao" || !tipo) {
+        return "/previa_modelos/Churrasqueira+Forno_Caipira_ou_50kg_um_ou_outro_mais_fogao_3_bcs.gif";
+      }
+    }
+
+    // Caso: Churrasqueira Padrão + Forno (Caipira ou Ferro)
+    if (ids.includes("churrasqueira") && (ids.includes("forno-caipira") || ids.includes("forno-ferro"))) {
+      if (tipo === "padrao" || !tipo) {
+        return "/previa_modelos/Churrasqueira_forno_caipira.gif";
+      }
+    }
+
+    // Caso: Churrasqueira Padrão + Fogão 3 Bocas
+    if (ids.includes("churrasqueira") && ids.includes("fogao-3-bocas")) {
+      if (tipo === "padrao" || !tipo) {
+        return "/previa_modelos/Churrasqueira_com_fogao.gif";
+      }
+    }
+
     // Caso: Churrasqueira + Forno Caipira + Bancada Sob Medida (Padrão)
     if (ids.includes("churrasqueira") && ids.includes("forno-caipira") && ids.includes("bancada-sob-medida")) {
       if (tipo === "padrao" || !tipo) {
@@ -188,8 +226,13 @@ Gostaria de receber um orçamento para este conjunto. Obrigado!`;
 
     // Default por categoria individual se não houver conjunto complexo
     if (ids.includes("forno-iglu")) return "/produtos/gourmet.png";
-    if (ids.includes("churrasqueira")) return "/produtos/tradicional.png";
+    if (ids.includes("churrasqueira")) {
+      if (tipo === "padrao") return "/previa_modelos/Churrasqueira-Padrao-que-Afunila-80x60x320.gif";
+      if (tipo === "caixote") return "/previa_modelos/churrasqueira_predial_caixote.gif";
+      return null;
+    }
     if (ids.includes("forno-caipira")) return "/produtos/caipira_nova.jpg";
+    if (ids.includes("forno-ferro")) return "/produtos/caipira_nova.jpg"; // Forno ferro se parece com caipira por fora
     
     return null;
   };
