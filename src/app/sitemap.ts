@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
 
   const productEntries: MetadataRoute.Sitemap = products.map((p) => ({
-    url: `https://churrasqueirasrj.com.br/produto/${p.slug}`,
+    url: `https://www.churrasqueirasdetijolos.com.br/produto/${p.slug}`,
     lastModified: p.updatedAt,
     changeFrequency: 'weekly' as const,
     priority: 0.8,
@@ -15,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: 'https://churrasqueirasrj.com.br',
+      url: 'https://www.churrasqueirasdetijolos.com.br',
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1,

@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
-import { Flame, ArrowRight, ShieldCheck, Clock, Award } from "lucide-react";
+import { Flame, ArrowRight, ShieldCheck, Clock, Award, Mouse, CheckCircle2 } from "lucide-react";
 
 export const revalidate = 3600;
 
@@ -113,44 +113,47 @@ export default async function HomePage() {
     <div className="space-y-32 mb-32">
       {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-        <Image
-          src="/hero-bg.png"
-          alt="Hero background"
-          fill
-          sizes="100vw"
-          className="object-cover brightness-[0.4]"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover brightness-[0.7]"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center space-y-8">
-          <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-md border border-primary/30 px-4 py-2 rounded-full text-primary font-bold text-xs uppercase tracking-widest animate-fade-in">
-            <Flame size={14} className="fill-current" />
-            Empresa Líder na Internet
-          </div>
-
-          <h1 className="text-5xl md:text-8xl font-bold text-white tracking-tighter leading-none max-w-5xl mx-auto">
-            Uma <span className="text-primary">Churrasqueira de Verdade</span> para celebrar.
+        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center space-y-10 pt-32">
+          <h1 className="text-6xl md:text-9xl font-black text-white tracking-tighter leading-[0.85] max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+            Construímos sua <span className="text-primary italic">Churrasqueira</span> de Verdade.
           </h1>
 
-          <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto font-medium leading-relaxed">
-            Especialistas em churrasqueiras de tijolo sob medida. Modelos artesanais construidas a mão tijolos a tijolos modelo rustico e original na medida que você precisa. Churrasqueiras, Churrasqueiras com Fogão, Churrasqueiras com Forno, Churrasqueiras forno e fogão, Balcão de tijolinho, Paredes e tudo na Arte do Tijolinho.
+          <p className="text-lg md:text-2xl text-white max-w-3xl mx-auto font-medium leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
+            Especialistas em churrasqueiras de tijolo Artesanais sob medida.
           </p>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 pt-8">
-            <Link
-              href="#modelos"
-              className="w-full md:w-auto bg-primary hover:bg-primary/90 text-white px-10 py-5 rounded-full font-bold text-lg shadow-2xl shadow-primary/40 transition-all hover:scale-105 active:scale-95"
-            >
-              Ver Modelos
-            </Link>
-            <Link
-              href="https://wa.me/5521920008754?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20construção%20de%20churrasqueira.%20Vi%20o%20portfólio%20de%20vocês%20pelo%20site%20e%20gostaria%20de%20saber%20valores"
-              className="w-full md:w-auto bg-white hover:bg-white/90 text-primary px-10 py-5 rounded-full font-bold text-lg shadow-xl transition-all hover:scale-105 active:scale-95"
-            >
-              Solicitar Orçamento
-            </Link>
+
+        </div>
+
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 animate-bounce">
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Explore</span>
+          <Mouse size={20} />
+        </div>
+      </section>
+
+      {/* Quote Section */}
+      <section className="max-w-5xl mx-auto px-4 text-center py-4">
+        <div className="relative py-12 md:py-16">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-6">
+            <Flame className="text-primary/20" size={32} />
           </div>
+          <p className="text-xl md:text-3xl text-muted-foreground italic font-medium leading-relaxed">
+            "A <span className="text-primary font-black not-italic uppercase tracking-wider">Alvorada</span> traz consigo a promessa de um mundo novo. Cada amanhecer é um convite para sermos melhores do que fomos ontem, iluminando o caminho com a clareza da luz que nasce."
+          </p>
+          <p className="mt-8 text-sm font-bold uppercase tracking-[0.3em] text-foreground/40">— Fernando Pessoa</p>
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[1px] w-32 bg-gradient-to-r from-transparent via-border to-transparent" />
         </div>
       </section>
 
@@ -216,8 +219,8 @@ export default async function HomePage() {
                 <div className="flex justify-between items-start gap-4">
                   <h3 className="text-2xl font-bold tracking-tight leading-tight group-hover:text-primary transition-colors">{product.name}</h3>
                 </div>
-                <div className="text-3xl font-black text-primary">
-                  R$ {product.price.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                <div className={`font-black ${product.price === 0 ? "text-xl text-primary/80 uppercase" : "text-3xl text-primary"}`}>
+                  {product.price === 0 ? "Preço a Consultar" : `R$ ${product.price.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}`}
                 </div>
                 <div className="pt-4 mt-auto border-t border-border/50 flex items-center justify-between text-muted-foreground group-hover:text-foreground transition-all">
                   <span className="text-sm font-bold uppercase tracking-wider">Ver Detalhes</span>
@@ -235,10 +238,85 @@ export default async function HomePage() {
         )}
       </section>
 
+      {/* About Section */}
+      <section id="sobre" className="max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="relative">
+            <div className="aspect-[4/5] relative rounded-[60px] overflow-hidden shadow-2xl">
+              <Image 
+                src="/sobre-nos.jpg" 
+                alt="Construção de Churrasqueira" 
+                fill 
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-10 -right-10 bg-primary p-10 rounded-[40px] shadow-2xl hidden md:block">
+              <p className="text-white text-5xl font-black tracking-tighter">15+</p>
+              <p className="text-white/80 text-sm font-bold uppercase tracking-widest">Anos de Experiência</p>
+            </div>
+          </div>
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-none">
+                Tradição em <span className="text-primary italic">Arte no Tijolinho</span>
+              </h2>
+              <p className="text-xl text-muted-foreground font-medium leading-relaxed">
+                Somos especialistas na construção de churrasqueiras, fogões e fornos a lenha artesanais em todo o Rio de Janeiro.
+              </p>
+            </div>
+            <div className="space-y-6 text-muted-foreground leading-relaxed">
+              <p>
+                Cada projeto é único e construído tijolo por tijolo, utilizando materiais de alta performance térmica (refratários originais) e acabamento impecável. Nosso compromisso é com a durabilidade e a satisfação de quem busca o verdadeiro sabor do churrasco e da comida feita no fogo de chão.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
+                    <CheckCircle2 size={20} />
+                  </div>
+                  <p className="text-sm font-bold text-foreground">Projetos Sob Medida para seu espaço.</p>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
+                    <CheckCircle2 size={20} />
+                  </div>
+                  <p className="text-sm font-bold text-foreground">Mão de obra especializada e limpa.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Process Section */}
+      <section className="bg-muted/50 py-32">
+        <div className="max-w-7xl mx-auto px-4 space-y-16">
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase">Como <span className="text-primary">Trabalhamos</span></h2>
+            <p className="text-muted-foreground max-w-xl mx-auto font-medium">Do orçamento à primeira brasa, transparência total.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              { step: "01", title: "Orçamento", desc: "Você escolhe o modelo e nós enviamos o valor na hora pelo WhatsApp." },
+              { step: "02", title: "Contrato Online", desc: "Envio de contrato online para sua segurança, com cada ponto do produto e negócio explicado com total transparência." },
+              { step: "03", title: "Construção", desc: "Nossa equipe executa a obra com materiais de primeira linha e agilidade." },
+              { step: "04", title: "Primeira Brasa", desc: "Entregamos tudo pronto para você inaugurar sua área gourmet." }
+            ].map((item, idx) => (
+              <div key={idx} className="bg-background p-10 rounded-[40px] border border-border/50 space-y-6 relative overflow-hidden group">
+                <span className="text-8xl font-black text-primary/5 absolute -right-4 -bottom-4 transition-transform group-hover:scale-110 duration-500">{item.step}</span>
+                <div className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center font-black text-xl">
+                  {item.step}
+                </div>
+                <h3 className="text-2xl font-bold tracking-tight">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed relative z-10">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
-      <section className="bg-secondary mx-4 rounded-[60px] py-24 px-8 text-center relative overflow-hidden shadow-2xl">
+      <section id="contato" className="bg-secondary mx-4 rounded-[60px] py-24 px-8 text-center relative overflow-hidden shadow-2xl">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
 
@@ -250,13 +328,13 @@ export default async function HomePage() {
             Não perca tempo. Peça agora seu orçamento gratuito e transforme sua área gourmet hoje mesmo. Atendemos em todo o Rio de Janeiro com garantia de satisfação.
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <a
-              href="https://wa.me/5521999999999"
-              className="w-full md:w-auto bg-primary hover:bg-primary/90 text-white px-12 py-6 rounded-full font-bold text-xl shadow-2xl shadow-primary/40 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
+            <button
+              data-orcamento-trigger
+              className="w-full md:w-auto bg-primary hover:bg-primary/90 text-white px-12 py-6 rounded-full font-bold text-xl shadow-2xl shadow-primary/40 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3 cursor-pointer"
             >
-              Falar no WhatsApp
+              Fazer Orçamento Agora
               <ArrowRight size={24} />
-            </a>
+            </button>
           </div>
         </div>
       </section>

@@ -89,28 +89,31 @@ export default async function ProductPage({ params }: Props) {
                 {product.name}
               </h1>
               <div className="text-4xl md:text-5xl font-black text-primary">
-                R$ {product.price.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                {product.price === 0 
+                  ? "SOB CONSULTA" 
+                  : `R$ ${product.price.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}`
+                }
               </div>
             </div>
 
             <div className="p-8 bg-card rounded-[32px] border border-border/50 shadow-sm space-y-6">
-              <h3 className="font-bold text-lg uppercase tracking-widest text-muted-foreground">O que está incluso:</h3>
+              <h3 className="font-bold text-lg uppercase tracking-widest text-muted-foreground">Nossos Diferenciais:</h3>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <li className="flex items-center gap-3 font-medium">
                   <CheckCircle2 className="text-green-500" size={20} />
-                  Base Refratária
+                  Tijolo próprio para altas temperaturas
                 </li>
                 <li className="flex items-center gap-3 font-medium">
                   <CheckCircle2 className="text-green-500" size={20} />
-                  Grelhas em Inox
+                  Produto Rústico e Autêntico
                 </li>
                 <li className="flex items-center gap-3 font-medium">
                   <CheckCircle2 className="text-green-500" size={20} />
-                  Acabamento em Granito
+                  Construção 100% Artesanal
                 </li>
                 <li className="flex items-center gap-3 font-medium">
                   <CheckCircle2 className="text-green-500" size={20} />
-                  Iluminação Interna
+                  Alta Durabilidade
                 </li>
               </ul>
             </div>
@@ -139,15 +142,15 @@ export default async function ProductPage({ params }: Props) {
             </div>
 
             <div className="pt-4">
-              <a 
-                href={`https://wa.me/5521999999999?text=Olá, tenho interesse na ${product.name}`}
-                className="w-full bg-primary hover:bg-primary/90 text-white py-6 rounded-[32px] font-bold text-2xl shadow-2xl shadow-primary/40 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-4"
+              <button 
+                data-orcamento-trigger
+                className="w-full bg-primary hover:bg-primary/90 text-white py-6 rounded-[32px] font-bold text-2xl shadow-2xl shadow-primary/40 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-4 cursor-pointer"
               >
                 Solicitar Orçamento Grátis
                 <ShieldCheck size={28} />
-              </a>
+              </button>
               <p className="text-center text-xs text-muted-foreground mt-4 font-bold uppercase tracking-widest">
-                Garantia de 5 anos inclusa
+                Garantia de 9 meses inclusa
               </p>
             </div>
           </div>

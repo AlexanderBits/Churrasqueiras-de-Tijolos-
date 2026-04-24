@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin', '/login'],
     },
-    sitemap: 'https://churrasqueirasrj.com.br/sitemap.xml',
+    sitemap: 'https://www.churrasqueirasdetijolos.com.br/sitemap.xml',
   };
 }
