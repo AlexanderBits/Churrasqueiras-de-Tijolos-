@@ -7,7 +7,7 @@ const WHATSAPP_NUMBER = "5521920008754";
 
 // Opções do conjunto
 const CONJUNTO_OPTIONS = [
-  { id: "churrasqueira", label: "Churrasqueira Padrão", desc: "80×60×320cm", icon: "🔥" },
+  { id: "churrasqueira", label: "Churrasqueira", desc: "80×60×320cm", icon: "🔥" },
   { id: "churrasqueira-sob-medida", label: "Churrasqueira Sob Medida", desc: "Prof. 80cm fixa. Informe L e A", icon: "📏", hasInput: true, inputPlaceholder: "Ex: L: 100cm, A: 350cm" },
   { id: "forno-iglu", label: "Forno tipo Iglu", desc: "Base 1m x 1m, Porta em Vidro", icon: "🍕" },
   { id: "forno-caipira", label: "Forno a Lenha Caipira", desc: "Modelo tradicional", icon: "🪵" },
@@ -35,7 +35,7 @@ const COR_OPTIONS = [
 
 // Tipo de churrasqueira
 const TIPO_OPTIONS = [
-  { id: "padrao", label: "Padrão", desc: "Modelo tradicional (80×60×320cm)" },
+  { id: "padrao", label: "Padrão (que afunila)", desc: "Modelo tradicional (80×60×320cm)" },
   { id: "caixote", label: "Caixote / Predial Reta", desc: "Modelo reto para prédios" },
 ];
 
@@ -170,15 +170,20 @@ Gostaria de receber um orçamento para este conjunto. Obrigado!`;
   // Mapeamento de imagens de prévia
   const getPreviewImage = () => {
     const ids = conjuntoSelecionado;
+    const tipo = tipoSelecionado;
     
-    // Caso: Churrasqueira + Forno Caipira + Bancada
-    if (ids.includes("churrasqueira") && ids.includes("forno-caipira") && (ids.includes("bancada-pia-120") || ids.includes("bancada-sob-medida"))) {
-      return "/previa_modelos/Churrasqueira_Forno-Caipia_ou_50kg_Bancada.gif";
+    // Caso: Churrasqueira + Forno Caipira + Bancada Sob Medida (Padrão)
+    if (ids.includes("churrasqueira") && ids.includes("forno-caipira") && ids.includes("bancada-sob-medida")) {
+      if (tipo === "padrao" || !tipo) {
+        return "/previa_modelos/Churrasqueira_Forno-Caipia_ou_50kg_Bancada.gif";
+      }
     }
     
-    // Caso: Churrasqueira + Forno Ferro + Bancada
-    if (ids.includes("churrasqueira") && ids.includes("forno-ferro") && (ids.includes("bancada-pia-120") || ids.includes("bancada-sob-medida"))) {
-      return "/previa_modelos/Churrasqueira_Forno-Caipia_ou_50kg_Bancada.gif"; // Usando o mesmo por enquanto como exemplo
+    // Caso: Churrasqueira + Forno Ferro + Bancada Sob Medida (Padrão)
+    if (ids.includes("churrasqueira") && ids.includes("forno-ferro") && ids.includes("bancada-sob-medida")) {
+      if (tipo === "padrao" || !tipo) {
+        return "/previa_modelos/Churrasqueira_Forno-Caipia_ou_50kg_Bancada.gif";
+      }
     }
 
     // Default por categoria individual se não houver conjunto complexo
@@ -338,7 +343,7 @@ Gostaria de receber um orçamento para este conjunto. Obrigado!`;
                 <div className="space-y-1">
                   <p className="text-amber-500 font-bold text-sm uppercase tracking-wider">Atenção Especial</p>
                   <p className="text-white/60 text-xs leading-relaxed">
-                    Nossos fornos de ferro são de **Ferro Fundido Puro**. Não trabalhamos com fornos de chapa, pois apodrecem com o tempo. Qualidade é nossa prioridade.
+                    Nossos fornos de ferro são de <strong>Ferro Fundido Puro</strong>. Não trabalhamos com fornos de chapa, pois apodrecem com o tempo. Qualidade é nossa prioridade.
                   </p>
                 </div>
               </div>
