@@ -343,7 +343,7 @@ Gostaria de receber um orçamento para este conjunto. Obrigado!`;
                 <div className="space-y-1">
                   <p className="text-amber-500 font-bold text-sm uppercase tracking-wider">Atenção Especial</p>
                   <p className="text-white/60 text-xs leading-relaxed">
-                    Nossos fornos de ferro são de <strong>Ferro Fundido Puro</strong>. Não trabalhamos com fornos de chapa, pois apodrecem com o tempo. Qualidade é nossa prioridade.
+                    Nossos fornos caipiras por dentro são em alvenaria. Caso queira de ferro, são de <strong>Ferro Fundido Puro</strong> e são orçados à parte (selecione a opção acima se desejar). Não trabalhamos com fornos de chapa, pois apodrecem com o tempo. Qualidade é nossa prioridade.
                   </p>
                 </div>
               </div>
