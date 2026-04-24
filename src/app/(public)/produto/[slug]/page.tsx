@@ -1,9 +1,10 @@
-import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Metadata } from "next";
 import { getProductJsonLd } from "@/lib/seo";
 import { Flame, CheckCircle2, MapPin, Truck, ShieldCheck } from "lucide-react";
+
+export const dynamic = 'force-dynamic';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -11,28 +12,40 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const product = await prisma.product.findUnique({ where: { slug }, include: { images: true } });
+  const { prisma } = await import("@/lib/prisma");
+  try {
+    const product = await prisma.product.findUnique({ where: { slug }, include: { images: true } });
+    if (!product) return { title: "Produto não encontrado" };
 
-  if (!product) return { title: "Produto não encontrado" };
-
-  return {
-    title: product.metaTitle || `${product.name} | Churrasqueiras RJ`,
-    description: product.metaDescription || "As melhores churrasqueiras de tijolo do Rio de Janeiro.",
-    keywords: product.keywords || "churrasqueira, tijolo, rj, área gourmet",
-    openGraph: {
-      title: product.name,
-      description: product.metaDescription || undefined,
-      images: product.images?.[0] ? [{ url: product.images[0].toString() }] : [],
-    },
-  };
+    return {
+      title: product.metaTitle || `${product.name} | Churrasqueiras RJ`,
+      description: product.metaDescription || "As melhores churrasqueiras de tijolo do Rio de Janeiro.",
+      keywords: product.keywords || "churrasqueira, tijolo, rj, área gourmet",
+      openGraph: {
+        title: product.name,
+        description: product.metaDescription || undefined,
+        images: product.images?.[0] ? [{ url: product.images[0].url }] : [],
+      },
+    };
+  } catch (error) {
+    console.error("Erro ao carregar metadados do produto:", error);
+    return { title: "Churrasqueiras RJ" };
+  }
 }
 
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
-  const product = await prisma.product.findUnique({
-    where: { slug },
-    include: { images: true },
-  });
+  const { prisma } = await import("@/lib/prisma");
+  let product: any = null;
+
+  try {
+    product = await prisma.product.findUnique({
+      where: { slug },
+      include: { images: true },
+    });
+  } catch (error) {
+    console.error("Erro ao carregar produto:", error);
+  }
 
   if (!product) notFound();
 

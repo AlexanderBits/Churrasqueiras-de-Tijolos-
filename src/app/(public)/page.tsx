@@ -1,9 +1,9 @@
-import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
 import { Flame, ArrowRight, ShieldCheck, Clock, Award, Mouse, CheckCircle2 } from "lucide-react";
 
 export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   keywords: [
@@ -103,11 +103,17 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const products = await prisma.product.findMany({
-    include: { images: true },
-    take: 6,
-    orderBy: { createdAt: "desc" },
-  });
+  const { prisma } = await import("@/lib/prisma");
+  let products: any[] = [];
+  try {
+    products = await prisma.product.findMany({
+      include: { images: true },
+      take: 6,
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Erro ao carregar produtos na home:", error);
+  }
 
   return (
     <div className="space-y-32 mb-32">

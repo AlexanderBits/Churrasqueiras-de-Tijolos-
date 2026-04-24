@@ -1,12 +1,19 @@
-import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { Plus, Package, Eye, Edit } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 export default async function DashboardPage() {
-  const products = await prisma.product.findMany({
-    include: { images: true },
-    orderBy: { createdAt: "desc" },
-  });
+  const { prisma } = await import("@/lib/prisma");
+  let products: any[] = [];
+  try {
+    products = await prisma.product.findMany({
+      include: { images: true },
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Erro ao carregar produtos no dashboard:", error);
+  }
 
   return (
     <div>
