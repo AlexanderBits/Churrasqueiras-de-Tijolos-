@@ -263,6 +263,7 @@ Gostaria de receber um orçamento para este conjunto. Obrigado!`;
           
           {step === 1 && (
             <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
+              <div className="space-y-2">
                 <h3 className="text-xl font-bold text-white flex items-center gap-3">
                   <span className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary text-sm">01</span>
                   Selecione os itens do seu conjunto
@@ -346,6 +347,7 @@ Gostaria de receber um orçamento para este conjunto. Obrigado!`;
 
           {step === 2 && (
             <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
+              <div className="space-y-2">
                 <h3 className="text-xl font-bold text-white flex items-center gap-3">
                   <span className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary text-sm">02</span>
                   Personalize o acabamento
