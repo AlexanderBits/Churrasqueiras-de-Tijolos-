@@ -117,6 +117,53 @@ export default async function HomePage() {
 
   return (
     <div className="space-y-32 mb-32">
+      {/* Schema Markup Oculto para SEO (Conteúdo do Site Antigo) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Churrasqueiras Alvorada / Churrasqueiras de Tijolos RJ",
+            "description": "Tradição em churrasqueiras pré-moldadas, fornos pré-moldados e lareiras. Rapidez e praticidade na montagem de sua churrasqueira com vários acabamentos. Fabricação modular de fornos caipira ideais para pães, pizzas e esfihas. Também trabalhamos com churrasqueiras residenciais e comerciais, fogões a lenha e uma linha completa de material refratário para sua obra.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Rua Prof. França Amaral, 553 - Jardim América",
+              "addressLocality": "Rio de Janeiro",
+              "addressRegion": "RJ",
+              "addressCountry": "BR"
+            },
+            "telephone": "(21) 3346-4288",
+            "makesOffer": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Churrasqueiras pré-moldadas",
+                  "description": "Rapidez e praticidade na montagem de sua churrasqueira. Vários acabamentos."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Fornos caipira e pré-moldados",
+                  "description": "Maior eficiência e rapidez na distribuição do calor. Ideal para pães, pizzas e esfihas."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Lareiras e Material Refratário",
+                  "description": "Projetos italianos dimensionados para eliminar a chance de retorno de fumaça. Tudo o que você precisa em refratários e outros materiais."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
       {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <video
