@@ -36,48 +36,72 @@ async function main() {
     {
       name: "Churrasqueira Tradicional",
       slug: "churrasqueira-tradicional",
-      description: "Nossa churrasqueira tradicional de tijolinhos aparentes. O modelo clássico perfeito para qualquer varanda ou quintal no Rio de Janeiro. Refratário interno de alta eficiência e beleza atemporal.",
-      price: 2490.00,
+      description: "A clássica churrasqueira de tijolinho que é referência no Rio. Construída com tijolos refratários de alta qualidade, garante o melhor churrasco para sua família. Design atemporal e durabilidade extrema.",
+      price: 0,
       category: "Tradicional",
       images: {
         create: [
-          { url: "https://images.unsplash.com/photo-1590779032729-28c94eb1c28c?q=80&w=1000&auto=format&fit=crop" },
+          { url: "/produtos/tradicional.png" },
         ]
       }
     },
     {
-      name: "Modelo Gourmet Luxo",
-      slug: "modelo-gourmet-luxo",
-      description: "Para clientes exigentes que buscam a mais alta sofisticação. Combina tijolos refratários premium, acabamentos em granito preto São Gabriel ou Mármore, vidro temperado nas laterais e coifa em inox.",
-      price: 6890.00,
-      category: "Gourmet Luxo",
+      name: "Conjunto Gourmet Iglu",
+      slug: "conjunto-gourmet-iglu",
+      description: "O ápice do lazer. Combina nossa churrasqueira padrão com um forno de pizza tipo Iglu integrado. Perfeito para quem ama churrasco e pizza com o verdadeiro sabor da lenha.",
+      price: 0,
+      category: "Gourmet",
       images: {
         create: [
-          { url: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000&auto=format&fit=crop" },
+          { url: "/produtos/gourmet.png" },
         ]
       }
     },
     {
-      name: "Churrasqueira Rústica Campeira",
+      name: "Churrasqueira Predial Caixote",
+      slug: "churrasqueira-predial",
+      description: "Desenvolvida especialmente para apartamentos e coberturas. O modelo caixote (reto) otimiza o espaço mantendo a eficiência térmica e a estética moderna que o seu prédio exige.",
+      price: 0,
+      category: "Predial",
+      images: {
+        create: [
+          { url: "/produtos/predial_nova.jpg" },
+        ]
+      }
+    },
+    {
+      name: "Churrasqueira Rústica",
       slug: "churrasqueira-rustica",
-      description: "Inspirada no visual campeiro com detalhes em dormente e forjada de ferro maciço. Assa a carne no estilo fuego lendo. Traz uma atmosfera quente e convidativa.",
-      price: 4200.00,
+      description: "Para quem busca um visual mais encorpado e artesanal. Acabamento rústico que remete às fazendas, ideal para áreas externas amplas e decorações que valorizam o natural.",
+      price: 0,
       category: "Rústica",
       images: {
         create: [
-          { url: "https://images.unsplash.com/photo-1582294437299-158140dbb51f?q=80&w=1000&auto=format&fit=crop" },
+          { url: "/produtos/rustica.png" },
         ]
       }
     },
     {
-      name: "Projeto 100% Sob Medida",
+      name: "Conjunto Caipira Completo",
+      slug: "conjunto-caipira-completo",
+      description: "Churrasqueira, forno a lenha caipira e fogão. O conjunto completo para quem não abre mão da culinária tradicional. Tudo em um único projeto integrado e harmonioso.",
+      price: 0,
+      category: "Caipira",
+      images: {
+        create: [
+          { url: "/produtos/caipira_nova.jpg" },
+        ]
+      }
+    },
+    {
+      name: "Projeto Sob Medida Premium",
       slug: "projeto-sob-medida",
-      description: "Criamos a churrasqueira perfeita para o espaço exato que você tem. Avaliamos a área de ventilação, fluxo de chaminé e design integrado à arquitetura atual da sua área gourmet.",
-      price: 8500.00,
+      description: "Não importa o tamanho do seu espaço, nós projetamos a solução ideal. Churrasqueiras personalizadas com largura e altura adaptadas à sua necessidade específica.",
+      price: 0,
       category: "Sob Medida",
       images: {
         create: [
-          { url: "https://images.unsplash.com/photo-1548325995-1f9db67d02dc?q=80&w=1000&auto=format&fit=crop" },
+          { url: "/produtos/sobmedida.png" },
         ]
       }
     }

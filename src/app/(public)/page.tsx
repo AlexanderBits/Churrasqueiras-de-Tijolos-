@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Flame, ArrowRight, ShieldCheck, Clock, Award, Mouse, CheckCircle2 } from "lucide-react";
 
-export const revalidate = 3600;
+export const revalidate = 0;
 export const dynamic = 'force-dynamic';
 
 export const metadata = {
@@ -113,6 +113,60 @@ export default async function HomePage() {
     });
   } catch (error) {
     console.error("Erro ao carregar produtos na home:", error);
+  }
+
+  // Fallback robusto caso o banco de dados esteja vazio ou fora do ar
+  if (products.length === 0) {
+    products = [
+      {
+        id: "static-1",
+        name: "Churrasqueira Tradicional",
+        slug: "churrasqueira-tradicional",
+        price: 0,
+        category: "Tradicional",
+        images: [{ url: "/produtos/tradicional.png" }]
+      },
+      {
+        id: "static-2",
+        name: "Conjunto Gourmet Iglu",
+        slug: "conjunto-gourmet-iglu",
+        price: 0,
+        category: "Gourmet",
+        images: [{ url: "/produtos/gourmet.png" }]
+      },
+      {
+        id: "static-3",
+        name: "Churrasqueira Predial Caixote",
+        slug: "churrasqueira-predial",
+        price: 0,
+        category: "Predial",
+        images: [{ url: "/produtos/predial_nova.jpg" }]
+      },
+      {
+        id: "static-4",
+        name: "Churrasqueira Rústica",
+        slug: "churrasqueira-rustica",
+        price: 0,
+        category: "Rústica",
+        images: [{ url: "/produtos/rustica.png" }]
+      },
+      {
+        id: "static-5",
+        name: "Conjunto Caipira Completo",
+        slug: "conjunto-caipira-completo",
+        price: 0,
+        category: "Caipira",
+        images: [{ url: "/produtos/caipira_nova.jpg" }]
+      },
+      {
+        id: "static-6",
+        name: "Projeto Sob Medida Premium",
+        slug: "projeto-sob-medida",
+        price: 0,
+        category: "Sob Medida",
+        images: [{ url: "/produtos/sobmedida.png" }]
+      }
+    ];
   }
 
   return (

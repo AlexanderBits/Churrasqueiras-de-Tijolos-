@@ -25,37 +25,55 @@ async function main() {
       id: "prod1",
       name: "Churrasqueira Tradicional",
       slug: "churrasqueira-tradicional",
-      description: "Nossa churrasqueira tradicional de tijolinhos aparentes. O modelo clássico perfeito para qualquer varanda ou quintal no Rio de Janeiro.",
-      price: 2490.00,
+      description: "A clássica churrasqueira de tijolinho que é referência no Rio. Construída com tijolos refratários de alta qualidade, garante o melhor churrasco para sua família. Design atemporal e durabilidade extrema.",
+      price: 0,
       category: "Tradicional",
-      image: "https://images.unsplash.com/photo-1590779032729-28c94eb1c28c?q=80&w=1000&auto=format&fit=crop"
+      image: "/produtos/tradicional.png"
     },
     {
       id: "prod2",
-      name: "Modelo Gourmet Luxo",
-      slug: "modelo-gourmet-luxo",
-      description: "Para clientes exigentes que buscam a mais alta sofisticação. Combina tijolos refratários premium e acabamentos em granito.",
-      price: 6890.00,
-      category: "Gourmet Luxo",
-      image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000&auto=format&fit=crop"
+      name: "Conjunto Gourmet Iglu",
+      slug: "conjunto-gourmet-iglu",
+      description: "O ápice do lazer. Combina nossa churrasqueira padrão com um forno de pizza tipo Iglu integrado. Perfeito para quem ama churrasco e pizza com o verdadeiro sabor da lenha.",
+      price: 0,
+      category: "Gourmet",
+      image: "/produtos/gourmet.png"
     },
     {
       id: "prod3",
-      name: "Churrasqueira Rústica Campeira",
-      slug: "churrasqueira-rustica",
-      description: "Inspirada no visual campeiro com detalhes em dormente e forjada de ferro maciço.",
-      price: 4200.00,
-      category: "Rústica",
-      image: "https://images.unsplash.com/photo-1582294437299-158140dbb51f?q=80&w=1000&auto=format&fit=crop"
+      name: "Churrasqueira Predial Caixote",
+      slug: "churrasqueira-predial",
+      description: "Desenvolvida especialmente para apartamentos e coberturas. O modelo caixote (reto) otimiza o espaço mantendo a eficiência térmica e a estética moderna que o seu prédio exige.",
+      price: 0,
+      category: "Predial",
+      image: "/produtos/predial_nova.jpg"
     },
     {
       id: "prod4",
-      name: "Projeto 100% Sob Medida",
+      name: "Churrasqueira Rústica",
+      slug: "churrasqueira-rustica",
+      description: "Para quem busca um visual mais encorpado e artesanal. Acabamento rústico que remete às fazendas, ideal para áreas externas amplas e decorações que valorizam o natural.",
+      price: 0,
+      category: "Rústica",
+      image: "/produtos/rustica.png"
+    },
+    {
+      id: "prod5",
+      name: "Conjunto Caipira Completo",
+      slug: "conjunto-caipira-completo",
+      description: "Churrasqueira, forno a lenha caipira e fogão. O conjunto completo para quem não abre mão da culinária tradicional. Tudo em um único projeto integrado e harmonioso.",
+      price: 0,
+      category: "Caipira",
+      image: "/produtos/caipira_nova.jpg"
+    },
+    {
+      id: "prod6",
+      name: "Projeto Sob Medida Premium",
       slug: "projeto-sob-medida",
-      description: "Criamos a churrasqueira perfeita para o espaço exato que você tem.",
-      price: 8500.00,
+      description: "Não importa o tamanho do seu espaço, nós projetamos a solução ideal. Churrasqueiras personalizadas com largura e altura adaptadas à sua necessidade específica.",
+      price: 0,
       category: "Sob Medida",
-      image: "https://images.unsplash.com/photo-1548325995-1f9db67d02dc?q=80&w=1000&auto=format&fit=crop"
+      image: "/produtos/sobmedida.png"
     }
   ];
 
