@@ -71,40 +71,21 @@ export default function MemorialPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Old Site Record */}
-          <div className="group space-y-6">
-            <div className="relative aspect-[4/3] rounded-[40px] overflow-hidden border-8 border-[#3d2b1f] shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+          <div className="group space-y-6 md:col-span-2 max-w-4xl mx-auto w-full">
+            <div className="relative aspect-video rounded-[40px] overflow-hidden border-8 border-[#3d2b1f] shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
               <Image 
                 src="/site-antigo-record.png" 
                 alt="Registro do Antigo Site da Churrasqueiras Alvorada" 
                 fill 
-                className="object-cover"
+                className="object-contain bg-[#5c3d2e]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
-                <p className="text-sm font-medium text-white/80">Este foi o registro do antigo site oficial, referência de qualidade no Jardim América por décadas.</p>
+                <p className="text-sm font-medium text-white/80">Registro histórico do site oficial e fachada, que serviu como referência de qualidade no Jardim América por décadas.</p>
               </div>
             </div>
-            <div className="px-4">
-              <h3 className="text-xl font-bold text-white mb-2 underline decoration-[#d4a373] underline-offset-8">Interface Digital (V.1)</h3>
-              <p className="text-sm text-[#d4a373]">O canal onde milhares de clientes iniciaram seus sonhos de área gourmet.</p>
-            </div>
-          </div>
-
-          {/* Facade Record */}
-          <div className="group space-y-6">
-            <div className="relative aspect-[4/3] rounded-[40px] overflow-hidden border-8 border-[#3d2b1f] shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-              <Image 
-                src="/fachada-antiga.jpg" 
-                alt="Fachada Histórica no Jardim América" 
-                fill 
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
-                <p className="text-sm font-medium text-white/80">A sede na Rua Prof. França Amaral, 553, que se tornou um marco no bairro.</p>
-              </div>
-            </div>
-            <div className="px-4">
-              <h3 className="text-xl font-bold text-white mb-2 underline decoration-[#d4a373] underline-offset-8">A Sede Histórica</h3>
-              <p className="text-sm text-[#d4a373]">Onde a produção artesanal ganhava vida todos os dias.</p>
+            <div className="px-4 text-center">
+              <h3 className="text-2xl font-bold text-white mb-2 underline decoration-[#d4a373] underline-offset-8 text-center">Interface Digital e Sede (V.1)</h3>
+              <p className="text-sm text-[#d4a373]">Preservação da memória visual da Churrasqueiras Alvorada.</p>
             </div>
           </div>
         </div>
