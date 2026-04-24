@@ -15,7 +15,7 @@ const createPrismaClient = () => {
     const adapter = new PrismaLibSql(libsql);
     return new PrismaClient({ 
       adapter,
-      datasourceUrl: "file:./dev.db",
+      datasources: { db: { url: "file:./dev.db" } },
       log: process.env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
     });
   }
