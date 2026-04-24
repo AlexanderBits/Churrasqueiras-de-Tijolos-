@@ -140,7 +140,7 @@ export default function PublicLayout({
             href="https://transparencyreport.google.com/safe-browsing/search?url=churrasqueirasdetijolos.com.br"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-80 transition-opacity bg-white p-3 rounded-xl shadow-lg border border-white/10"
+            className="hover:opacity-80 transition-opacity"
           >
             <Image 
               src="/google_safe_browsing.png"

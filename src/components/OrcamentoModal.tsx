@@ -167,6 +167,30 @@ Gostaria de receber um orçamento para este conjunto. Obrigado!`;
     onClose();
   };
 
+  // Mapeamento de imagens de prévia
+  const getPreviewImage = () => {
+    const ids = conjuntoSelecionado;
+    
+    // Caso: Churrasqueira + Forno Caipira + Bancada
+    if (ids.includes("churrasqueira") && ids.includes("forno-caipira") && (ids.includes("bancada-pia-120") || ids.includes("bancada-sob-medida"))) {
+      return "/previa_modelos/Churrasqueira_Forno-Caipia_ou_50kg_Bancada.gif";
+    }
+    
+    // Caso: Churrasqueira + Forno Ferro + Bancada
+    if (ids.includes("churrasqueira") && ids.includes("forno-ferro") && (ids.includes("bancada-pia-120") || ids.includes("bancada-sob-medida"))) {
+      return "/previa_modelos/Churrasqueira_Forno-Caipia_ou_50kg_Bancada.gif"; // Usando o mesmo por enquanto como exemplo
+    }
+
+    // Default por categoria individual se não houver conjunto complexo
+    if (ids.includes("forno-iglu")) return "/produtos/gourmet.png";
+    if (ids.includes("churrasqueira")) return "/produtos/tradicional.png";
+    if (ids.includes("forno-caipira")) return "/produtos/caipira_nova.jpg";
+    
+    return null;
+  };
+
+  const previewImage = getPreviewImage();
+
   if (enviado) {
     return (
       <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
@@ -181,6 +205,11 @@ Gostaria de receber um orçamento para este conjunto. Obrigado!`;
               Sua solicitação foi enviada. Agora é só aguardar o redirecionamento para o WhatsApp.
             </p>
           </div>
+          {previewImage && (
+            <div className="relative aspect-square w-full rounded-3xl overflow-hidden border border-white/5 bg-white/5">
+              <img src={previewImage} alt="Modelo Escolhido" className="w-full h-full object-contain" />
+            </div>
+          )}
           <div className="flex items-center justify-center gap-2 py-3 px-6 bg-white/5 rounded-2xl text-primary font-bold">
             <Clock size={20} />
             <span>Resposta em menos de 1 minuto</span>
@@ -234,13 +263,27 @@ Gostaria de receber um orçamento para este conjunto. Obrigado!`;
           
           {step === 1 && (
             <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
-              <div className="space-y-2">
                 <h3 className="text-xl font-bold text-white flex items-center gap-3">
                   <span className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary text-sm">01</span>
                   Selecione os itens do seu conjunto
                 </h3>
                 <p className="text-white/40 text-sm">Escolha todos os componentes que deseja incluir na sua área gourmet.</p>
               </div>
+
+              {previewImage && (
+                <div className="relative aspect-video w-full rounded-[2rem] overflow-hidden border border-white/5 bg-white/[0.02] animate-in zoom-in-95 duration-500 shadow-2xl shadow-black/40 group">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+                  <img 
+                    src={previewImage} 
+                    alt="Prévia do Modelo" 
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" 
+                  />
+                  <div className="absolute bottom-4 left-6 z-20 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60">Visualização em Tempo Real</span>
+                  </div>
+                </div>
+              )}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {CONJUNTO_OPTIONS.map((opt) => {
@@ -303,13 +346,27 @@ Gostaria de receber um orçamento para este conjunto. Obrigado!`;
 
           {step === 2 && (
             <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
-              <div className="space-y-2">
                 <h3 className="text-xl font-bold text-white flex items-center gap-3">
                   <span className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary text-sm">02</span>
                   Personalize o acabamento
                 </h3>
                 <p className="text-white/40 text-sm">Defina as cores e o estilo construtivo da sua churrasqueira.</p>
               </div>
+
+              {previewImage && (
+                <div className="relative aspect-video w-full rounded-[2rem] overflow-hidden border border-white/5 bg-white/[0.02] animate-in zoom-in-95 duration-500 shadow-2xl shadow-black/40 group">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+                  <img 
+                    src={previewImage} 
+                    alt="Prévia do Modelo" 
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" 
+                  />
+                  <div className="absolute bottom-4 left-6 z-20 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60">Visualização em Tempo Real</span>
+                  </div>
+                </div>
+              )}
 
               <div className="space-y-6">
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-primary/60 px-1">Cor dos Tijolos</p>
