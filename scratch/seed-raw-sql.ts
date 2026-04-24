@@ -74,6 +74,15 @@ async function main() {
       price: 0,
       category: "Trio",
       image: "/produtos/sobmedida.png"
+    },
+    {
+      id: "prod7",
+      name: "Predial com Forno e Bancada",
+      slug: "predial-forno-bancada",
+      description: "A elegância do modelo predial (caixote) agora com forno integrado e bancada lateral. Ideal para quem busca funcionalidade e estética moderna em um único projeto.",
+      price: 0,
+      category: "Predial",
+      image: "/previa_modelos/Churrasqueira_Forno-Caipia_ou_50kg_Bancada.gif"
     }
   ];
 
