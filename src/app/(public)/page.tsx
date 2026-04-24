@@ -160,10 +160,10 @@ export default async function HomePage() {
       },
       {
         id: "static-6",
-        name: "Projeto Sob Medida Premium",
-        slug: "projeto-sob-medida",
+        name: "Conjunto Trio Premium",
+        slug: "projeto-trio",
         price: 0,
-        category: "Sob Medida",
+        category: "Trio",
         images: [{ url: "/produtos/sobmedida.png" }]
       }
     ];

@@ -68,11 +68,11 @@ async function main() {
     },
     {
       id: "prod6",
-      name: "Projeto Sob Medida Premium",
-      slug: "projeto-sob-medida",
-      description: "Não importa o tamanho do seu espaço, nós projetamos a solução ideal. Churrasqueiras personalizadas com largura e altura adaptadas à sua necessidade específica.",
+      name: "Conjunto Trio Premium",
+      slug: "projeto-trio",
+      description: "O conjunto completo: Churrasqueira, Forno e Fogão. A solução definitiva para sua área gourmet com design integrado e máxima funcionalidade.",
       price: 0,
-      category: "Sob Medida",
+      category: "Trio",
       image: "/produtos/sobmedida.png"
     }
   ];
