@@ -151,19 +151,6 @@ export default function PublicLayout({
             />
           </Link>
 
-          <Link 
-            href="/memorial" 
-            className="group flex items-center gap-3 bg-white/5 hover:bg-white/10 px-6 py-4 rounded-2xl border border-white/10 transition-all active:scale-95"
-          >
-            <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-              <History size={20} />
-            </div>
-            <div className="flex flex-col text-left">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-primary">História Preservada</span>
-              <span className="text-sm font-bold text-white">Memorial Alvorada</span>
-            </div>
-          </Link>
-
           <div className="text-center text-white/30 text-[10px] font-bold uppercase tracking-[0.2em] flex flex-col gap-3">
             <span>&copy; 2026 Churrasqueiras RJ - Todos os direitos reservados</span>
             <span>Site desenvolvido por <a href="https://desenvolvimentodesites.dev.br" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-colors">Alexis Marketing &amp; Dev</a></span>
