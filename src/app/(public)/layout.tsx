@@ -33,7 +33,7 @@ export default function PublicLayout({
             <Link href="/#modelos" className="hover:text-primary transition-colors">Modelos</Link>
             <Link href="/#sobre" className="hover:text-primary transition-colors">Sobre Nós</Link>
             <Link href="/#contato" className="hover:text-primary transition-colors">Contato</Link>
-            <a href="http://www.churrasqueirasdetijolos.com.br" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Site Antigo V.1</a>
+            <Link href="/memorial" className="hover:text-primary transition-colors">Site Antigo V.1</Link>
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-4">
@@ -53,7 +53,7 @@ export default function PublicLayout({
                   <Link href="/#modelos" className="text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors">Modelos</Link>
                   <Link href="/#sobre" className="text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors">Sobre Nós</Link>
                   <Link href="/#contato" className="text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors">Contato</Link>
-                  <a href="http://www.churrasqueirasdetijolos.com.br" target="_blank" rel="noopener noreferrer" className="text-sm font-bold uppercase tracking-widest text-primary hover:text-primary/80 transition-colors">Site Antigo V.1</a>
+                  <Link href="/memorial" className="text-sm font-bold uppercase tracking-widest text-primary hover:text-primary/80 transition-colors">Site Antigo V.1</Link>
                 </div>
               </details>
             </div>

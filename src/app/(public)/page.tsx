@@ -351,7 +351,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               { step: "01", title: "Orçamento", desc: "Você escolhe o modelo e nós enviamos o valor na hora pelo WhatsApp." },
-              { step: "02", title: "Contrato Online", desc: "Envio de contrato online para sua segurança, com cada ponto do produto e negócio explicado com total transparência." },
+              { step: "02", title: "Contrato Online", desc: "Envio de contrato online para sua segurança, com cada ponto do produto explicado com transparência." },
               { step: "03", title: "Construção", desc: "Nossa equipe executa a obra com materiais de primeira linha e agilidade." },
               { step: "04", title: "Primeira Brasa", desc: "Entregamos tudo pronto para você inaugurar sua área gourmet." }
             ].map((item, idx) => (
