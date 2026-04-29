@@ -166,14 +166,6 @@ export default async function HomePage() {
         category: "Trio",
         images: [{ url: "/produtos/sobmedida.png" }]
       },
-      {
-        id: "static-7",
-        name: "Predial com Forno e Bancada",
-        slug: "predial-forno-bancada",
-        price: 0,
-        category: "Predial",
-        images: [{ url: "/previa_modelos/Churrasqueira_Forno-Caipia_ou_50kg_Bancada.gif" }]
-      }
     ];
   }
 

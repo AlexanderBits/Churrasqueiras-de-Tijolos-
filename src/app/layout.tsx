@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     title: "Churrasqueiras de Tijolos RJ",
     description: "Qualidade premium em churrasqueiras, fornos e fogões a lenha.",
   },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
