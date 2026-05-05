@@ -24,11 +24,20 @@ export const metadata: Metadata = {
     siteName: "Churrasqueiras RJ",
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "/logo-v2.png",
+        width: 1200,
+        height: 630,
+        alt: "Churrasqueiras de Tijolos RJ",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Churrasqueiras de Tijolos RJ",
     description: "Qualidade premium em churrasqueiras, fornos e fogões a lenha.",
+    images: ["/logo-v2.png"],
   },
   icons: {
     icon: "/icon.png",

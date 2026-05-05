@@ -179,7 +179,7 @@ export default async function HomePage() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Churrasqueiras Alvorada / Churrasqueiras de Tijolos RJ",
-            "description": "Tradição em churrasqueiras pré-moldadas, fornos pré-moldados e lareiras. Rapidez e praticidade na montagem de sua churrasqueira com vários acabamentos. Fabricação modular de fornos caipira ideais para pães, pizzas e esfihas. Também trabalhamos com churrasqueiras residenciais e comerciais, fogões a lenha e uma linha completa de material refratário para sua obra.",
+            "description": "Tradição em churrasqueiras de tijolo maciço, fornos e lareiras artesanais. Excelência e durabilidade na construção de sua área gourmet com acabamento impecável. Construção artesanal de fornos caipira ideais para pães, pizzas e esfihas. Também trabalhamos com churrasqueiras residenciais e comerciais, fogões a lenha e projetos sob medida para sua área de lazer.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Rua Prof. França Amaral, 553 - Jardim América",
@@ -193,16 +193,16 @@ export default async function HomePage() {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Product",
-                  "name": "Churrasqueiras pré-moldadas",
-                  "description": "Rapidez e praticidade na montagem de sua churrasqueira. Vários acabamentos."
+                  "name": "Churrasqueiras de Tijolinho",
+                  "description": "Excelência e durabilidade na construção artesanal de sua churrasqueira sob medida."
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Product",
-                  "name": "Fornos caipira e pré-moldados",
-                  "description": "Maior eficiência e rapidez na distribuição do calor. Ideal para pães, pizzas e esfihas."
+                  "name": "Fornos e Fogões a Lenha Artesanais",
+                  "description": "Maior eficiência térmica para pizzas, pães e comida caipira, construídos tijolo por tijolo."
                 }
               },
               {
@@ -210,7 +210,7 @@ export default async function HomePage() {
                 "itemOffered": {
                   "@type": "Product",
                   "name": "Lareiras e Material Refratário",
-                  "description": "Projetos italianos dimensionados para eliminar a chance de retorno de fumaça. Tudo o que você precisa em refratários e outros materiais."
+                  "description": "Projetos dimensionados para eliminar a chance de retorno de fumaça. Tudo o que você precisa em refratários originais."
                 }
               }
             ]
